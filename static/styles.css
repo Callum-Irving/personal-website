@@ -1,0 +1,79 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Source Code Pro", monospace;
+    background-color: #0e1019;
+    color: #cccccc;
+    margin: auto;
+    font-style: normal;
+    width: 53em;
+    max-width: 90vw;
+}
+
+header {
+    margin-top: 2em;
+    margin-bottom: 2.5em;
+}
+
+nav {
+    text-align: center;
+}
+
+h1 {
+    color: #ff000f;
+    text-align: center;
+    text-shadow: 1px 1px 2px #ff000f;
+}
+
+h2 {
+    color: #ffffff;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+a {
+    color: #ff000f;
+}
+
+a:hover {
+    color: #f5515b;
+    text-shadow: 0px 0px 2px #f5515b;
+}
+
+.nostyle {
+    text-decoration: none;
+}
+
+p {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+footer {
+    margin-top: 3em;
+}
+
+footer p {
+    text-align: center;
+    color: #ffffff;
+}
+
+img {
+  width: 30em;
+  max-width: 70vw;
+  max-height: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  object-fit: contain;
+}
+
+figcaption {
+  text-align: center;
+  padding-top: 10px;
+}

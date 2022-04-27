@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Callum Irving's personal website" />
+    <meta
+      name="keywords"
+      content="software developer, Callum Irving, portfolio, blog"
+    />
+    <meta name="author" content="Callum Irving" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <title>Callum Irving's Website</title>
+  </head>
+
+  <body>
+    <header>
+      <h1><a class="nostyle" href="/">Callum Irving's Website</a></h1>
+      <nav>
+        <a class="nostyle" href="/blog">[Blog]</a>
+        <a
+          class="nostyle"
+          href="https://github.com/Callum-Irving/"
+          target="_blank"
+          >[Github]</a
+        >
+        <a class="nostyle" href="mailto:callum.irving@protonmail.com"
+          >[Email]</a
+        >
+      </nav>
+    </header>
+
+    {% block content %} {% endblock %}
+  </body>
+</html>
