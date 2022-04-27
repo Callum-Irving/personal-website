@@ -6,3 +6,5 @@ title = "PNeat - A NEAT implementation for Processing"
 
 Pneat is a work-in-progress right now but it aims to be a very easy-to-use NEAT
 implementation for Processing.
+
+Check out the Github repo [here](https://github.com/Callum-Irving/PNeat).
