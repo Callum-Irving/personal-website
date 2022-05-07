@@ -6,7 +6,10 @@
 </h2>
 <ul>
   {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+  <li>
+    <h3 style="margin-bottom:0"><a class="nostyle" href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
+    <p style="margin-top: 0.5em">{{ page.description }}</p>
+  </li>
   {% endfor %}
 </ul>
 {% endblock content %}

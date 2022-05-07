@@ -1,5 +1,6 @@
 +++
 title = "Seashell - A bad shell I wrote in Rust"
+description = "Seashell is a shell program I wrote to learn how shells work."
 +++
 
 ## Seashell - A Bad Shell I Wrote in Rust

@@ -1,5 +1,6 @@
 +++
 title = "PNeat - A NEAT implementation for Processing"
+description = "PNeat aims to be an easy-to-use NEAT implementation for Processing."
 +++
 
 ## PNeat - A NEAT Implementation for Processing
