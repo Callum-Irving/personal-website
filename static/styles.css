@@ -1,17 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Epilogue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Epilogue&family=Source+Code+Pro:wght@400;700&display=swap");
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Source Code Pro", "Courier New", monospace;
+  font-family: "Source Code Pro", monospace;
   background-color: #0e1019;
   color: #cccccc;
   margin: auto;
   font-style: normal;
-  width: 53em;
-  max-width: 90vw;
+  width: 90vw;
+  max-width: 640px;
 }
 
 header {
@@ -31,7 +31,6 @@ h1 {
 
 h2 {
   color: #ffffff;
-  text-decoration: underline;
   margin-top: 2em;
   margin-bottom: 1em;
   font-size: 1.5rem;
@@ -53,7 +52,7 @@ a:hover {
 }
 
 p {
-  font-family: "Epilogue", "IBM Plex Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   line-height: 1.5;
   font-weight: normal;
   font-size: 1.1rem;
