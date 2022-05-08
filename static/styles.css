@@ -57,6 +57,7 @@ p {
   line-height: 1.5;
   font-weight: normal;
   font-size: 1.1rem;
+  hyphens: auto;
 }
 
 .project-list {
