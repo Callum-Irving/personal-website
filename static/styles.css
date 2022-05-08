@@ -1,62 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Epilogue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Epilogue&display=swap");
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Source Code Pro", "Courier New", monospace;
-    background-color: #0e1019;
-    color: #cccccc;
-    margin: auto;
-    font-style: normal;
-    width: 53em;
-    max-width: 90vw;
+  font-family: "Source Code Pro", "Courier New", monospace;
+  background-color: #0e1019;
+  color: #cccccc;
+  margin: auto;
+  font-style: normal;
+  width: 53em;
+  max-width: 90vw;
 }
 
 header {
-    margin-top: 2em;
-    margin-bottom: 2.5em;
+  margin-top: 2em;
+  margin-bottom: 2.5em;
 }
 
 nav {
-    text-align: center;
+  text-align: center;
 }
 
 h1 {
-    color: #ff000f;
-    text-align: center;
-    text-shadow: 1px 1px 2px #ff000f;
+  color: #ff000f;
+  text-align: center;
+  text-shadow: 1px 1px 2px #ff000f;
 }
 
 h2 {
-    color: #ffffff;
-    text-decoration: underline;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
+  color: #ffffff;
+  text-decoration: underline;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 a {
-    color: #ff000f;
+  color: #ff000f;
 }
 
 a:hover {
-    color: #f5515b;
-    text-shadow: 0px 0px 2px #f5515b;
+  color: #f5515b;
+  text-shadow: 0px 0px 2px #f5515b;
 }
 
 .nostyle {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 p {
-    font-family: "Epilogue", "IBM Plex Sans", sans-serif;
-    line-height: 1.5;
-    font-weight: normal;
-    font-size: 1.1rem;
+  font-family: "Epilogue", "IBM Plex Sans", sans-serif;
+  line-height: 1.5;
+  font-weight: normal;
+  font-size: 1.1rem;
 }
 
 .project-list {
@@ -64,18 +64,18 @@ p {
   padding: 0;
 }
 
-.project {
-  border-bottom: 1px dashed #cccccc;
+.project-list li {
+  border-bottom: 1px solid #cccccc;
   margin-bottom: 2em;
 }
 
 footer {
-    margin-top: 3em;
+  margin-top: 3em;
 }
 
 footer p {
-    text-align: center;
-    color: #ffffff;
+  text-align: center;
+  color: #ffffff;
 }
 
 img {
