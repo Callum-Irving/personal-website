@@ -4,9 +4,9 @@
 <h2 class="title">
   {{ section.title }}
 </h2>
-<ul>
+<ul class="project-list">
   {% for page in section.pages %}
-  <li>
+  <li class="project">
     <h3 style="margin-bottom:0"><a class="nostyle" href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
     <p style="margin-top: 0.5em">{{ page.description }}</p>
   </li>
