@@ -12,8 +12,11 @@
     <meta name="author" content="Callum Irving" />
 
     <link rel="stylesheet" type="text/css" href="/styles.css" />
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{
+    get_url(path="/favicon-32x32.png", trailing_slash=false) }}" sizes="32x32"
+    /> <link rel="icon" type="image/png" href="{{
+    get_url(path="/favicon-16x16.png", trailing_slash=false) }}" sizes="16x16"
+    />
     <title>{{ page.title }}</title>
   </head>
 
@@ -23,11 +26,7 @@
       <nav>
         <a class="nostyle" href="/blog">[Blog]</a>
         <a class="nostyle" href="/projects">[Projects]</a>
-        <a
-          class="nostyle"
-          href="https://github.com/Callum-Irving/"
-          >[Github]</a
-        >
+        <a class="nostyle" href="https://github.com/Callum-Irving/">[Github]</a>
         <a class="nostyle" href="mailto:callum.irving@protonmail.com"
           >[Email]</a
         >
