@@ -5,6 +5,8 @@ date = 2019-11-27
 
 This is my first blog post.
 
+# This is a code block
+
 ```rust
 pub fn main() {
     let test = 4;
@@ -12,3 +14,9 @@ pub fn main() {
     println!("This is some test code: {}", test);
 }
 ```
+
+# Another subheader
+
+## With more nesting
+
+### And even more
