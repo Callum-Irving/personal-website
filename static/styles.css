@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Courier New", "Source Code Pro", monospace;
+    font-family: "Source Code Pro", "Courier New", monospace;
     background-color: #0e1019;
     color: #cccccc;
     margin: auto;
@@ -31,6 +31,7 @@ h1 {
 
 h2 {
     color: #ffffff;
+    text-decoration: underline;
     margin-top: 2em;
     margin-bottom: 1em;
     font-size: 1.5rem;
@@ -52,10 +53,10 @@ a:hover {
 }
 
 p {
-    font-family: "Fira Sans", "Roboto", "Sans Serif";
+    font-family: "IBM Plex Sans", sans-serif;
     line-height: 1.3;
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .project-list {
