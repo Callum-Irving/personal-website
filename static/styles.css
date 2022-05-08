@@ -38,6 +38,18 @@ h2 {
   text-align: center;
 }
 
+p {
+  font-family: "IBM Plex Sans", sans-serif;
+  line-height: 1.5;
+  font-weight: normal;
+  font-size: 1.1rem;
+  hyphens: auto;
+}
+
+/*
+ * Links
+ */
+
 a {
   color: #ff000f;
 }
@@ -51,13 +63,9 @@ a:hover {
   text-decoration: none;
 }
 
-p {
-  font-family: "IBM Plex Sans", sans-serif;
-  line-height: 1.5;
-  font-weight: normal;
-  font-size: 1.1rem;
-  hyphens: auto;
-}
+/*
+ * Lists
+ */
 
 .project-list {
   list-style: none;
@@ -69,6 +77,10 @@ p {
   margin-bottom: 2em;
 }
 
+/*
+ * Footer
+ */
+
 footer {
   margin-top: 3em;
 }
@@ -77,6 +89,10 @@ footer p {
   text-align: center;
   color: #ffffff;
 }
+
+/*
+ * Images
+ */
 
 img {
   width: 30em;
@@ -91,4 +107,13 @@ img {
 figcaption {
   text-align: center;
   padding-top: 10px;
+}
+
+/*
+ * Code formatting
+ */
+
+pre {
+  padding: 10px;
+  border-radius: 5px;
 }
