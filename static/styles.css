@@ -1,17 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Epilogue&family=Source+Code+Pro:wght@400;700&display=swap");
 
+/*
+ * Colour themes
+ */
+:root {
+  --background-color: #0e1019;
+  --text-color: #cccccc;
+  --header-color: #ff000f;
+  --hover-color: #f5515b;
+  --heading-color: #ffffff;
+}
+
+[data-theme="light"] {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --heading-color: #000000;
+  --hover-color: #131313;
+  --header-color: #2c3e50;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: "Source Code Pro", monospace;
-  background-color: #0e1019;
-  color: #cccccc;
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: auto;
   font-style: normal;
   width: 90vw;
   max-width: 640px;
+
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 /*
@@ -28,8 +49,8 @@ nav {
 }
 
 .top-header {
-  color: #ff000f;
-  text-shadow: 1px 1px 2px #ff000f;
+  color: var(--header-color);
+  text-shadow: 1px 1px 2px var(--header-color);
   font-size: 2rem;
   margin: 0.67em 0 0.67em 0;
 }
@@ -39,7 +60,7 @@ nav {
  */
 
 h1 {
-  color: #ffffff;
+  color: var(--heading-color);
   font-size: 1.7rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -47,7 +68,7 @@ h1 {
 }
 
 h2 {
-  color: #ffffff;
+  color: var(--heading-color);
   margin-top: 2em;
   margin-bottom: 1em;
   font-size: 1.4rem;
@@ -56,7 +77,7 @@ h2 {
 }
 
 h3 {
-  color: #ffffff;
+  color: var(--heading-color);
 }
 
 p {
@@ -72,12 +93,12 @@ p {
  */
 
 a {
-  color: #ff000f;
+  color: var(--header-color);
 }
 
 a:hover {
-  color: #f5515b;
-  text-shadow: 0px 0px 2px #f5515b;
+  color: var(--hover-color);
+  text-shadow: 0px 0px 2px var(--hover-color);
 }
 
 .nostyle {
@@ -94,7 +115,7 @@ a:hover {
 }
 
 .project-list li {
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid var(--text-color);
   margin-bottom: 2em;
 }
 
@@ -108,7 +129,7 @@ footer {
 
 footer p {
   text-align: center;
-  color: #ffffff;
+  color: var(--heading-color);
 }
 
 /*
