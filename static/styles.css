@@ -6,17 +6,17 @@
 :root {
   --background-color: #0e1019;
   --text-color: #cccccc;
+  --heading-color: #ffffff;
   --header-color: #ff000f;
   --hover-color: #f5515b;
-  --heading-color: #ffffff;
 }
 
 [data-theme="light"] {
   --background-color: #ffffff;
   --text-color: #000000;
   --heading-color: #000000;
-  --hover-color: #131313;
   --header-color: #2c3e50;
+  --hover-color: #4595a8;
 }
 
 html {
