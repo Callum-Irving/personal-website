@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}Callum Irving's Blog{% endblock %}
+
 {% block content %}
 <h2 class="title">
   {{ section.title }}
@@ -9,4 +11,4 @@
   <li><a href="{{ page.permalink | safe }}">{{ page.title }} ({{ page.date }})</a></li>
   {% endfor %}
 </ul>
-{% endblock content %}
+{% endblock %}
