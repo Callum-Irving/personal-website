@@ -5,18 +5,20 @@
  */
 :root {
   --background-color: #0e1019;
-  --text-color: #cccccc;
-  --heading-color: #ffffff;
+  --text-color: #ccc;
+  --heading-color: #fff;
   --header-color: #ff000f;
+  --top-color: #ff000f;
   --hover-color: #f5515b;
 }
 
 [data-theme="light"] {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --heading-color: #000000;
-  --header-color: #2c3e50;
-  --hover-color: #4595a8;
+  --background-color: #f9f4e6;
+  --text-color: #000;
+  --heading-color: #000;
+  --header-color: #7D2A0C;
+  --top-color: #000;
+  --hover-color: #CA9A4E;
 }
 
 html {
@@ -49,11 +51,15 @@ nav {
 }
 
 .top-header {
-  color: var(--header-color);
-  text-shadow: 1px 1px 2px var(--header-color);
+  color: var(--top-color);
+  text-shadow: 1px 1px 2px var(--top-color);
   text-align: center;
   font-size: 2rem;
   margin: 0.67em 0 0.67em 0;
+}
+
+.top-header a {
+  color: var(--top-color);
 }
 
 /*
