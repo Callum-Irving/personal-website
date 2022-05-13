@@ -3,12 +3,16 @@
 {% block title %}Callum Irving's Blog{% endblock %}
 
 {% block content %}
-<h2 class="title">
+<h1 class="title">
   {{ section.title }}
-</h2>
-<ul>
+</h1>
+<ul class="project-list">
   {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }} ({{ page.date }})</a></li>
+  <li>
+    <h3 style="margin-bottom: 0"><a class="nostyle" href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
+    <p style="margin-top: 0.2em; margin-bottom: 0; font-size: 0.8rem">{{ page.date }}</p>
+    <p style="margin-top: 0.3em">{{ page.description }}</p>
+  </li>
   {% endfor %}
 </ul>
 {% endblock %}
