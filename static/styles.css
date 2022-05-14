@@ -166,9 +166,37 @@ pre {
   padding: 10px;
   border-radius: 5px;
   overflow-x: auto;
+  position: relative;
 }
 
 code {
   font-family: "Source Code Pro";
   font-size: 1rem;
+}
+
+pre:hover > .copy-button {
+  opacity: 0.9;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 7px;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  opacity: 0;
+  transition: 0.2s;
+
+  background-color: #555555;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+.copy-button:hover {
+  cursor: pointer;
+  background-color: #e7e7e7;
+  color: #000;
 }

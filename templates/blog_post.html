@@ -8,26 +8,52 @@
 
 <!-- Table of contents -->
 <div style="border-top:1px solid;border-bottom:1px solid;margin-bottom:2rem;">
-    <h3>Table of Contents</h3>
-    {% if page.toc %}
-        <ul>
-        {% for h1 in page.toc %}
-            <li>
-                <a class="nostyle" href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-                {% if h1.children %}
-                    <ul>
-                        {% for h2 in h1.children %}
-                            <li>
-                                <a class="nostyle" href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </li>
+  <h3>Table of Contents</h3>
+  {% if page.toc %}
+  <ul>
+    {% for h1 in page.toc %}
+    <li>
+      <a class="nostyle" href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+      {% if h1.children %}
+      <ul>
+        {% for h2 in h1.children %}
+        <li>
+          <a class="nostyle" href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+        </li>
         {% endfor %}
-        </ul>
-    {% endif %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 </div>
 
 {{ page.content | safe }}
+
+<script>
+if (navigator.clipboard) {
+  document.querySelectorAll("pre > code").forEach((codeBlock) => {
+    let button = document.createElement("button");
+    button.className = "copy-button";
+    button.type = "button";
+    button.innerText = "Copy";
+    button.addEventListener("click", copyCode);
+    let pre = codeBlock.parentNode;
+    pre.appendChild(button);
+  });
+}
+
+async function copyCode(event) {
+  const btn = event.srcElement;
+  const pre = btn.parentElement;
+  let code = pre.querySelector("code");
+  let text = code.innerText;
+  await navigator.clipboard.writeText(text);
+  btn.blur();
+  btn.innerText = "Copied!";
+  setTimeout(() => (btn.innerText = "Copy"), 2000);
+}
+</script>
+
 {% endblock content %}
