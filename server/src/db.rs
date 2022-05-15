@@ -12,11 +12,5 @@ pub async fn add_comment(client: &Client, comment: CommentPost) -> Result<Commen
         .await
         .unwrap();
 
-    let comment = Comment {
-        user: res.try_get(0).map_err(|_| MyError::DBError)?,
-        content: res.try_get(1).map_err(|_| MyError::DBError)?,
-        date: res.try_get(2).map_err(|_| MyError::DBError)?,
-    };
-
-    Ok(comment)
+    res.try_into()
 }

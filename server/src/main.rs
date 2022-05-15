@@ -20,9 +20,10 @@ use actix_web::web;
 use actix_web::{App, HttpServer};
 use dotenv::dotenv;
 use env_logger::Env;
+use openssl::ssl::{SslConnector, SslMethod, SslVerifyMode};
+use postgres_openssl::MakeTlsConnector;
 use serde::Deserialize;
 use std::env;
-use tokio_postgres::NoTls;
 
 #[derive(Deserialize)]
 struct Config {
@@ -39,6 +40,7 @@ impl Config {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    // Read environment variables from a .env file for development
     dotenv().ok();
 
     // Set up logging so we can see what's going on in Heroku console
@@ -49,9 +51,12 @@ async fn main() -> std::io::Result<()> {
     let host = env::var("HOST").unwrap_or_else(|_| "127.0.0.1".to_owned());
     let port = env::var("PORT").unwrap_or_else(|_| "3000".to_owned());
 
-    // TODO: Setup database connection
+    // Setup database connection
+    let mut builder = SslConnector::builder(SslMethod::tls()).unwrap();
+    builder.set_verify(SslVerifyMode::NONE);
+    let connector = MakeTlsConnector::new(builder.build());
     let config = Config::from_env().unwrap();
-    let pool = config.pg.create_pool(None, NoTls).unwrap();
+    let pool = config.pg.create_pool(None, connector).unwrap();
 
     HttpServer::new(move || {
         App::new()

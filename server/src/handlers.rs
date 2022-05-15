@@ -27,11 +27,12 @@ pub async fn create_comment(
         comment.user, comment.post_id, comment.content
     );
 
+    // TODO: Add profanity filter
+    // TODO: Add spam protection
+
     let comment = comment.into_inner();
     let client = db_pool.get().await.map_err(MyError::PoolError)?;
-    debug!("Got connection");
     let new_comment = db::add_comment(&client, comment).await?;
-    debug!("Added comment to DB");
 
     Ok(HttpResponse::Ok().json(new_comment))
 }
