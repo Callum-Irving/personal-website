@@ -14,6 +14,7 @@ mod models;
 
 use crate::handlers::*;
 
+use actix_cors::Cors;
 use actix_web::middleware::Logger;
 use actix_web::web;
 use actix_web::{App, HttpServer};
@@ -71,9 +72,10 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(pool.clone()))
+            .wrap(Cors::permissive())
+            .wrap(Logger::default())
             .service(get_comments)
             .service(create_comment)
-            .wrap(Logger::default())
     })
     .bind(format!("{}:{}", host, port))?
     .run()
