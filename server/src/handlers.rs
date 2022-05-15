@@ -3,25 +3,29 @@ use crate::error::MyError;
 use crate::models::*;
 
 use actix_web::web::{Json, Path};
-use actix_web::{get, post, web, HttpResponse};
+use actix_web::{get, post, web};
 use deadpool_postgres::Pool;
 use log::debug;
 
 #[get("/comments/{post_id}")]
-pub async fn get_comments(post_id: Path<u32>) -> Json<CommentList> {
+pub async fn get_comments(
+    post_id: Path<i32>,
+    db_pool: web::Data<Pool>,
+) -> Result<Json<CommentList>, actix_web::Error> {
     debug!("Get comments for: {}", post_id);
 
-    // TODO: Get comments
-    let comments = CommentList::new();
+    // Get all comments with post_id matching
+    let client = db_pool.get().await.map_err(MyError::PoolError)?;
+    let comments = db::get_comments(&client, post_id.into_inner()).await?;
 
-    Json(comments)
+    Ok(Json(comments))
 }
 
 #[post("/createcomment")]
 pub async fn create_comment(
     comment: Json<CommentPost>,
     db_pool: web::Data<Pool>,
-) -> Result<HttpResponse, actix_web::Error> {
+) -> Result<Json<Comment>, actix_web::Error> {
     debug!(
         "Comment from: {}. On post: {}. Message: {}",
         comment.user, comment.post_id, comment.content
@@ -34,5 +38,5 @@ pub async fn create_comment(
     let client = db_pool.get().await.map_err(MyError::PoolError)?;
     let new_comment = db::add_comment(&client, comment).await?;
 
-    Ok(HttpResponse::Ok().json(new_comment))
+    Ok(Json(new_comment))
 }

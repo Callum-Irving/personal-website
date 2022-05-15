@@ -14,3 +14,20 @@ pub async fn add_comment(client: &Client, comment: CommentPost) -> Result<Commen
 
     res.try_into()
 }
+
+pub async fn get_comments(client: &Client, post_id: i32) -> Result<CommentList, MyError> {
+    let _stmt = include_str!("../sql/get_comments.sql");
+    let stmt = client.prepare(_stmt).await.unwrap();
+
+    let res = client
+        .query(&stmt, &[&post_id])
+        .await
+        .map_err(MyError::PGError)?;
+
+    let comments: Vec<Comment> = res
+        .into_iter()
+        .map(|row| row.try_into())
+        .collect::<Result<Vec<Comment>, MyError>>()?;
+
+    Ok(CommentList { comments })
+}
