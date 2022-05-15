@@ -15,7 +15,7 @@ pub async fn get_comments(
     debug!("Get comments for: {}", post_id);
 
     // Get all comments with post_id matching
-    let client = db_pool.get().await.map_err(MyError::PoolError)?;
+    let client = db_pool.get().await.map_err(MyError::Pool)?;
     let comments = db::get_comments(&client, post_id.into_inner()).await?;
 
     Ok(Json(comments))
@@ -35,7 +35,7 @@ pub async fn create_comment(
     // TODO: Add spam protection
 
     let comment = comment.into_inner();
-    let client = db_pool.get().await.map_err(MyError::PoolError)?;
+    let client = db_pool.get().await.map_err(MyError::Pool)?;
     let new_comment = db::add_comment(&client, comment).await?;
 
     Ok(Json(new_comment))

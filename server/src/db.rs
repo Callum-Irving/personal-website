@@ -22,7 +22,7 @@ pub async fn get_comments(client: &Client, post_id: i32) -> Result<CommentList, 
     let res = client
         .query(&stmt, &[&post_id])
         .await
-        .map_err(MyError::PGError)?;
+        .map_err(MyError::Postgres)?;
 
     let comments: Vec<Comment> = res
         .into_iter()

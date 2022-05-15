@@ -20,9 +20,9 @@ impl TryFrom<Row> for Comment {
 
     fn try_from(value: Row) -> Result<Self, Self::Error> {
         Ok(Comment {
-            user: value.try_get("username").map_err(|_| MyError::DBError)?,
-            content: value.try_get("content").map_err(|_| MyError::DBError)?,
-            date: value.try_get("posted").map_err(|_| MyError::DBError)?,
+            user: value.try_get("username").map_err(|_| MyError::Database)?,
+            content: value.try_get("content").map_err(|_| MyError::Database)?,
+            date: value.try_get("posted").map_err(|_| MyError::Database)?,
         })
     }
 }

@@ -4,29 +4,23 @@ use std::fmt;
 
 #[derive(Debug)]
 pub enum MyError {
-    NotFound,
-    PGError(tokio_postgres::Error),
-    PoolError(PoolError),
-    DBError,
+    Postgres(tokio_postgres::Error),
+    Pool(PoolError),
+    Database,
 }
 
 impl fmt::Display for MyError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match *self {
-            MyError::NotFound => write!(f, "Error: not found"),
-            MyError::PGError(_) => write!(f, "Error: Postgres error"),
-            MyError::DBError => write!(f, "Error: database error"),
-            MyError::PoolError(ref e) => write!(f, "{}", e)
+            MyError::Postgres(_) => write!(f, "Error: Postgres error"),
+            MyError::Database => write!(f, "Error: database error"),
+            MyError::Pool(ref e) => write!(f, "{}", e),
         }
     }
 }
 
 impl ResponseError for MyError {
     fn error_response(&self) -> actix_web::HttpResponse {
-        match *self {
-            MyError::NotFound => HttpResponse::NotFound().finish(),
-            MyError::DBError => HttpResponse::InternalServerError().finish(),
-            _ => HttpResponse::InternalServerError().finish(),
-        }
+        HttpResponse::InternalServerError().finish()
     }
 }
