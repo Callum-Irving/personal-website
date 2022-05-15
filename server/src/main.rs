@@ -45,7 +45,7 @@ async fn main() -> std::io::Result<()> {
 
     // Set up logging so we can see what's going on in Heroku console
     // TODO: Set back to "info", not "debug"
-    env_logger::init_from_env(Env::default().default_filter_or("debug"));
+    env_logger::init_from_env(Env::default().default_filter_or("info"));
 
     // Get host and port from environment variables
     let host = env::var("HOST").unwrap_or_else(|_| "127.0.0.1".to_owned());
