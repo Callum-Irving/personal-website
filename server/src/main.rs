@@ -14,7 +14,6 @@ mod models;
 
 use crate::handlers::*;
 
-use ::config::ConfigError;
 use actix_web::middleware::Logger;
 use actix_web::web;
 use actix_web::{App, HttpServer};
@@ -22,20 +21,32 @@ use dotenv::dotenv;
 use env_logger::Env;
 use openssl::ssl::{SslConnector, SslMethod, SslVerifyMode};
 use postgres_openssl::MakeTlsConnector;
-use serde::Deserialize;
 use std::env;
+use url::Url;
 
-#[derive(Deserialize)]
-struct Config {
-    pub pg: deadpool_postgres::Config,
-}
+fn config_from_url(url: &str) -> Result<deadpool_postgres::Config, &'static str> {
+    // Config URL is in format:
+    // postgres://USER:PASSWORD@HOST:PORT/DBNAME
+    let url = Url::parse(url).map_err(|_| "could not parse db url")?;
+    let user = url.username().to_string();
+    let password = url.password().ok_or("bad password")?.to_string();
+    let host = url.host().ok_or("bad host")?.to_string();
+    let port = url.port().ok_or("no port in url")?;
+    let dbname = url
+        .path_segments()
+        .ok_or("cannot be base")?
+        .next()
+        .unwrap()
+        .to_string();
 
-impl Config {
-    fn from_env() -> Result<Self, ConfigError> {
-        let mut cfg = ::config::Config::new();
-        cfg.merge(::config::Environment::new())?;
-        cfg.try_into()
-    }
+    let mut cfg = deadpool_postgres::Config::new();
+    cfg.user = Some(user);
+    cfg.password = Some(password);
+    cfg.host = Some(host);
+    cfg.port = Some(port);
+    cfg.dbname = Some(dbname);
+
+    Ok(cfg)
 }
 
 #[actix_web::main]
@@ -54,8 +65,8 @@ async fn main() -> std::io::Result<()> {
     let mut builder = SslConnector::builder(SslMethod::tls()).unwrap();
     builder.set_verify(SslVerifyMode::NONE);
     let connector = MakeTlsConnector::new(builder.build());
-    let config = Config::from_env().unwrap();
-    let pool = config.pg.create_pool(None, connector).unwrap();
+    let config = config_from_url(&env::var("DATABASE_URL").unwrap()).unwrap();
+    let pool = config.create_pool(None, connector).unwrap();
 
     HttpServer::new(move || {
         App::new()
