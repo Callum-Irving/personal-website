@@ -44,7 +44,6 @@ async fn main() -> std::io::Result<()> {
     dotenv().ok();
 
     // Set up logging so we can see what's going on in Heroku console
-    // TODO: Set back to "info", not "debug"
     env_logger::init_from_env(Env::default().default_filter_or("info"));
 
     // Get host and port from environment variables
