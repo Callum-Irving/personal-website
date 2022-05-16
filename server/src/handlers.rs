@@ -33,6 +33,7 @@ pub async fn create_comment(
 
     // TODO: Add profanity filter
     // TODO: Add spam protection
+    // TODO: Make sure fields aren't empty
 
     let comment = comment.into_inner();
     let client = db_pool.get().await.map_err(MyError::Pool)?;

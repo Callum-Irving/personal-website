@@ -200,3 +200,52 @@ pre:hover > .copy-button {
   background-color: #e7e7e7;
   color: #000;
 }
+
+/*
+ * Comments section
+ */
+
+#comments {
+    margin-top: 5rem;
+    border-top: 1px solid;
+}
+
+#comments h1 {
+    margin-top: 1rem;
+}
+
+.comment h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.comment p {
+    margin-top: 0.7rem;
+    margin-bottom: 0;
+}
+
+.comment {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+    border: 1px dashed;
+    border-radius: 5px;
+}
+
+form {
+  margin-bottom: 3rem;
+}
+
+input {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+textarea {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 8px;
+  width: 100%;
+  min-height: 130px;
+  overflow: auto;
+  font-family: "IBM Plex Sans", sans-serif;
+}
