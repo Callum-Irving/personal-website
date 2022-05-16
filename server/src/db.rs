@@ -8,19 +8,19 @@ pub async fn add_comment(client: &Client, comment: CommentPost) -> Result<Commen
     let stmt = client.prepare(_stmt).await.unwrap();
 
     let res = client
-        .query_one(&stmt, &[&comment.post_id, &comment.user, &comment.content])
+        .query_one(&stmt, &[&comment.post_slug, &comment.user, &comment.content])
         .await
         .unwrap();
 
     res.try_into()
 }
 
-pub async fn get_comments(client: &Client, post_id: i32) -> Result<CommentList, MyError> {
+pub async fn get_comments(client: &Client, post_slug: String) -> Result<CommentList, MyError> {
     let _stmt = include_str!("../sql/get_comments.sql");
     let stmt = client.prepare(_stmt).await.unwrap();
 
     let res = client
-        .query(&stmt, &[&post_id])
+        .query(&stmt, &[&post_slug])
         .await
         .map_err(MyError::Postgres)?;
 

@@ -29,7 +29,7 @@ impl TryFrom<Row> for Comment {
 
 #[derive(Serialize, Deserialize)]
 pub struct CommentPost {
-    pub post_id: i32,
+    pub post_slug: String,
     pub user: String,
     pub content: String,
 }
