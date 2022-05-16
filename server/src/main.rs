@@ -2,10 +2,6 @@
 //!
 //! This is the backend for the blog comments API for my website at
 //! https://callumirving.vercel.app/
-//!
-//! TODO:
-//! - Create UUID system for posts
-//! - Use Heroku Postgres to store comments
 
 mod db;
 mod error;
