@@ -18,6 +18,8 @@ pub fn main() {
 
 # Another subheader
 
+Inside this is some `inline code`. Cool!
+
 ## With more nesting
 
 ### And even more

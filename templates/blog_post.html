@@ -92,6 +92,8 @@ commentForm.onsubmit = async (e) => {
     location.reload();
 };
 
+// TODO: Add reply button to comments
+
 async function getComments() {
   const res = await fetch("https://callumirving-blog-api.herokuapp.com/comments/{{ page.slug }}");
   const json = await res.json();
