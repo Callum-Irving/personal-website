@@ -7,8 +7,9 @@ pub async fn add_comment(client: &Client, comment: CommentPost) -> Result<Commen
     let _stmt = include_str!("../sql/add_comment.sql");
     let stmt = client.prepare(_stmt).await.unwrap();
 
+    // TODO: Check parent exists before inserting
     let res = client
-        .query_one(&stmt, &[&comment.post_slug, &comment.user, &comment.content])
+        .query_one(&stmt, &[&comment.post_slug, &comment.user, &comment.content, &comment.parent])
         .await
         .unwrap();
 
