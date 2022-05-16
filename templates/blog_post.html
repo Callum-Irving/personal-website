@@ -100,6 +100,20 @@ async function getComments() {
   json.comments.reverse().forEach((comment) => {
     let commentDiv = document.createElement("div");
     commentDiv.classList.add("comment");
+    commentDiv.id = "comment_" + comment.id;
+    
+    if (comment.parent) {
+      // Find depth of parent
+      let depth = 1;
+      let parent = comment.parent;
+      while (parent) {
+        parent = parent.parent;
+        depth++;
+      }
+
+      let widthStr = (100 - depth * 2).toString();
+      commentDiv.setAttribute("style", `width:${widthStr}%`);
+    }
 
     let name = document.createElement("h4");
     name.classList.add("comment-user");
