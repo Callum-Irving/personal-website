@@ -214,22 +214,29 @@ pre:hover > .copy-button {
     margin-top: 1rem;
 }
 
-.comment h4 {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.comment p {
-    margin-top: 0.7rem;
-    margin-bottom: 0;
-}
-
 .comment {
     margin: auto;
     width: 90%;
     padding: 10px;
     border: 1px dashed;
     border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.comment-user {
+    margin-bottom: 3px;
+    margin-top: 0;
+}
+
+.comment-date {
+    color: var(--text-color);
+    font-size: 0.7rem;
+    margin-top: 0;
+}
+
+.comment-body {
+    margin-top: 0.7rem;
+    margin-bottom: 0;
 }
 
 form {

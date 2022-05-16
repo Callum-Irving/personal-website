@@ -88,8 +88,8 @@ commentForm.onsubmit = async (e) => {
     body: JSON.stringify(value),
   });
 
-  const json = await res.json();
-  console.log(json);
+  if (res.status === 200)
+    location.reload();
 };
 
 async function getComments() {
@@ -97,15 +97,22 @@ async function getComments() {
   const json = await res.json();
 
   let commentsDiv = document.getElementById("comments");
-  json.comments.forEach((comment) => {
+  json.comments.reverse().forEach((comment) => {
     let commentDiv = document.createElement("div");
     commentDiv.classList.add("comment");
 
     let name = document.createElement("h4");
+    name.classList.add("comment-user");
     name.appendChild(document.createTextNode(comment.user));
     commentDiv.appendChild(name);
 
+    let date = document.createElement("p");
+    date.classList.add("comment-date");
+    date.appendChild(document.createTextNode(comment.date));
+    commentDiv.appendChild(date);
+
     let content = document.createElement("p");
+    content.classList.add("comment-body");
     content.appendChild(document.createTextNode(comment.content));
     commentDiv.appendChild(content);
 

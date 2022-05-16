@@ -1,3 +1,4 @@
-SELECT username, content, posted
+SELECT username, content, posted, id
 FROM comment
-WHERE post_slug=$1;
+WHERE post_slug=$1
+ORDER BY id DESC;
