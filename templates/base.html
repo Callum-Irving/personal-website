@@ -16,31 +16,11 @@
     href="{{ get_url(path="favicon-16x16.png", trailing_slash=false) }}"
     sizes="16x16" />
     <title>{% block title %}{% endblock %}</title>
+    <script defer src="/toggle_theme.js"></script>
+    {% block head %}{% endblock %}
   </head>
 
   <body>
-    <script>
-      function toggleTheme() {
-        if (localStorage.getItem("theme") === "light") {
-          localStorage.setItem("theme", "dark");
-        } else {
-          localStorage.setItem("theme", "light");
-        }
-
-        initTheme();
-      }
-
-      function initTheme() {
-        if (localStorage.getItem("theme") === "light") {
-          document.documentElement.setAttribute("data-theme", "light");
-        } else {
-          document.documentElement.setAttribute("data-theme", "dark");
-        }
-      }
-
-      initTheme();
-    </script>
-
     <header>
       <h1 class="top-header">
         <a class="nostyle" href="/">Callum Irving's Website</a>

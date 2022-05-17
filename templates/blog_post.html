@@ -2,6 +2,8 @@
 
 {% block title %}{{ page.title }}{% endblock %}
 
+{% block head %}<script defer src="/copy_code.js"></script>{% endblock %}
+
 {% block content %}
 <h1 style="text-align:left;">{{ page.title }}</h1>
 <p><strong>{{ page.date }}</strong></p>
@@ -42,30 +44,4 @@
           async>
   </script>
 </div>
-
-<script>
-if (navigator.clipboard) {
-  document.querySelectorAll("pre > code").forEach((codeBlock) => {
-    let button = document.createElement("button");
-    button.className = "copy-button";
-    button.type = "button";
-    button.innerText = "Copy";
-    button.addEventListener("click", copyCode);
-    let pre = codeBlock.parentNode;
-    pre.appendChild(button);
-  });
-}
-
-async function copyCode(event) {
-  const btn = event.srcElement;
-  const pre = btn.parentElement;
-  let code = pre.querySelector("code");
-  let text = code.innerText;
-  await navigator.clipboard.writeText(text);
-  btn.blur();
-  btn.innerText = "Copied!";
-  setTimeout(() => (btn.innerText = "Copy"), 2000);
-}
-</script>
-
 {% endblock content %}
