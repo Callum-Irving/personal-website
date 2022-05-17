@@ -31,14 +31,16 @@
 
 {{ page.content | safe }}
 
-
 <div id="comments">
   <h1>Comments</h1>
-  <form id="comment-form">
-    <input type="text" name="user" id="name" placeholder="Name">
-    <textarea name="content" placeholder="Comment..."></textarea>
-    <input class="submit-button" type="submit" value="Comment!">
-  </form>
+  <script src="https://utteranc.es/client.js"
+          repo="Callum-Irving/personal-website"
+          issue-term="pathname"
+          label="comment"
+          theme="photon-dark"
+          crossorigin="anonymous"
+          async>
+  </script>
 </div>
 
 <script>
@@ -64,79 +66,6 @@ async function copyCode(event) {
   btn.innerText = "Copied!";
   setTimeout(() => (btn.innerText = "Copy"), 2000);
 }
-
-// TODO: Move common behaviour to separate JS file
-
-let commentForm = document.getElementById("comment-form");
-
-commentForm.onsubmit = async (e) => {
-  e.preventDefault();
-
-  let data = new FormData(e.target);
-  const value = Object.fromEntries(data.entries());
-  value.post_slug = "{{ page.slug }}";
-
-  // TODO: Make sure fields are filled in
-
-  // Create a comment using POST
-  const res = await fetch("https://callumirving-blog-api.herokuapp.com/createcomment", {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(value),
-  });
-
-  if (res.status === 200)
-    location.reload();
-};
-
-// TODO: Add reply button to comments
-
-async function getComments() {
-  const res = await fetch("https://callumirving-blog-api.herokuapp.com/comments/{{ page.slug }}");
-  const json = await res.json();
-
-  let commentsDiv = document.getElementById("comments");
-  json.comments.reverse().forEach((comment) => {
-    let commentDiv = document.createElement("div");
-    commentDiv.classList.add("comment");
-    commentDiv.id = "comment_" + comment.id;
-    
-    if (comment.parent) {
-      // Find depth of parent
-      let depth = 1;
-      let parent = comment.parent;
-      while (parent) {
-        parent = parent.parent;
-        depth++;
-      }
-
-      let widthStr = (100 - depth * 2).toString();
-      commentDiv.setAttribute("style", `width:${widthStr}%`);
-    }
-
-    let name = document.createElement("h4");
-    name.classList.add("comment-user");
-    name.appendChild(document.createTextNode(comment.user));
-    commentDiv.appendChild(name);
-
-    let date = document.createElement("p");
-    date.classList.add("comment-date");
-    date.appendChild(document.createTextNode(comment.date));
-    commentDiv.appendChild(date);
-
-    let content = document.createElement("p");
-    content.classList.add("comment-body");
-    content.appendChild(document.createTextNode(comment.content));
-    commentDiv.appendChild(content);
-
-    commentsDiv.appendChild(commentDiv);
-  });
-}
-
-getComments();
 </script>
 
 {% endblock content %}
