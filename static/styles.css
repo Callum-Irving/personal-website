@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Epilogue&family=Source+Code+Pro:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=JetBrains+Mono&family=Source+Code+Pro:wght@400;700&display=swap");
 
 /*
  * Colour themes
@@ -16,9 +16,9 @@
   --background-color: #f9f4e6;
   --text-color: #000;
   --heading-color: #000;
-  --header-color: #7D2A0C;
+  --header-color: #7d2a0c;
   --top-color: #000;
-  --hover-color: #CA9A4E;
+  --hover-color: #ca9a4e;
 }
 
 html {
@@ -170,13 +170,13 @@ pre {
 }
 
 code {
-  font-family: "Source Code Pro";
-  font-size: 1rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
 }
 
 p > code {
   font-size: 0.8rem;
-  background: #212733;
+  background: #282c34;
   color: #fff;
   border-radius: 5px;
   padding: 5px;
@@ -214,39 +214,39 @@ pre:hover > .copy-button {
  */
 
 #comments {
-    margin-top: 5rem;
-    border-top: 1px solid;
+  margin-top: 5rem;
+  border-top: 1px solid;
 }
 
 #comments h1 {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .comment {
-    margin: auto;
-    width: 100%;
-    padding: 10px;
-    border: 1px dashed;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    margin-right: 0;
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  border: 1px dashed;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  margin-right: 0;
 }
 
 .comment-user {
-    margin-bottom: 3px;
-    margin-top: 0;
+  margin-bottom: 3px;
+  margin-top: 0;
 }
 
 .comment-date {
-    color: var(--text-color);
-    font-size: 0.7rem;
-    margin-top: 0;
+  color: var(--text-color);
+  font-size: 0.7rem;
+  margin-top: 0;
 }
 
 .comment-body {
-    margin-top: 0.7rem;
-    margin-bottom: 0;
+  margin-top: 0.7rem;
+  margin-bottom: 0;
 }
 
 form {
