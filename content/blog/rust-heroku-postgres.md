@@ -129,8 +129,8 @@ Heroku URL.
 ## Setting up SSL
 
 This was the biggest headache for me but it's actually very simple. The thing
-with Heroku Postgres is that it requires SSL, but does no give certificates. To
-make this work we need to set SSL verify to off in our SSL config in Rust.
+with Heroku Postgres is that it requires SSL, but doesn't give certificates. To
+make this work we need to set the SSL verify mode to off in our SSL config in Rust.
 
 ```rust
 let mut builder = SslConnector::builder(SslMethod::tls()).unwrap();
@@ -138,7 +138,7 @@ builder.set_verify(SslVerifyMode::NONE);
 let connector = MakeTlsConnector::new(builder.build());
 ```
 
-And that's all the SSL stuff we need.
+And that's all the SSL stuff we need to do.
 
 ## Creating a connection pool
 
@@ -186,7 +186,7 @@ CREATE TABLE post (
 );
 ```
 
-We can write a function in our rust code to call this SQL query.
+We can write a function in our Rust code to call this SQL query.
 
 ```rust
 // Add this at the top of your file
@@ -202,7 +202,7 @@ async fn create_table(client: &Client) {
 
 I'm just going to put this at the bottom of my main function, run it once, then
 remove it. You could also use the psql command line tool instead of all of this
-if prefer.
+if you prefer.
 
 ## Inserting some data
 
