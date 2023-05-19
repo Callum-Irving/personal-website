@@ -1,16 +1,21 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %}Callum Irving's Blog{% endblock %}
+{%block content %}
+<h1 class="title">{{ section.title }}</h1>
 
-{% block title %}Callum Irving's Blog{% endblock %}
+<p>
+  I try to write blog posts about problems I solved that other people might also
+  have or just things people might find useful in general.
+</p>
 
-{% block content %}
-<h1 class="title">
-  {{ section.title }}
-</h1>
 <ul class="project-list">
   {% for page in section.pages %}
   <li>
-    <h3 style="margin-bottom: 0"><a class="nostyle" href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
-    <p style="margin-top: 0.2em; margin-bottom: 0; font-size: 0.8rem">{{ page.date }}</p>
+    <h3 style="margin-bottom: 0">
+      <a class="nostyle" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    </h3>
+    <p style="margin-top: 0.2em; margin-bottom: 0; font-size: 0.8rem">
+      {{ page.date }}
+    </p>
     <p style="margin-top: 0.3em">{{ page.description }}</p>
   </li>
   {% endfor %}
