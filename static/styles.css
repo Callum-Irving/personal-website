@@ -95,6 +95,7 @@ nav {
 
 nav a {
   padding: 1px;
+  line-height: 2;
 }
 
 .top-header {
