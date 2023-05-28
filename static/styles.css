@@ -2,13 +2,14 @@
  * Colour themes
  */
 :root {
-  --background-color: #0e1019;
+  --background-color: #000;
   --text-color: #ccc;
   --heading-color: #fff;
   --header-color: #ff000f;
   --top-color: #ff000f;
   --hover-color: #f5515b;
   --shadow-size: 2px;
+  --link-color: #fff;
 }
 
 [data-theme="light"] {
@@ -19,6 +20,7 @@
   --top-color: #7d2a0c;
   --hover-color: #ca9a4e;
   --shadow-size: 0px;
+  --link-color: #f9f4e6;
 }
 
 html {
@@ -48,7 +50,11 @@ header {
 
 nav {
   text-align: center;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Noto Sans Mono", monospace;
+}
+
+nav a {
+  padding: 1px;
 }
 
 .top-header {
@@ -57,10 +63,17 @@ nav {
   text-align: center;
   font-size: 2rem;
   margin: 0.67em 0 0.67em 0;
+  font-family: "Source Code Pro", monospace;
 }
 
 .top-header a {
   color: var(--top-color);
+}
+
+.top-header a:hover {
+  text-shadow: 0px 0px var(--shadow-size) var(--hover-color);
+  color: var(--hover-color);
+  background: none;
 }
 
 /*
@@ -68,7 +81,7 @@ nav {
  */
 
 h1 {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Noto Sans Mono", monospace;
   color: var(--heading-color);
   font-size: 1.7rem;
   margin-top: 2rem;
@@ -77,7 +90,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Noto Sans Mono", monospace;
   color: var(--heading-color);
   margin-top: 2em;
   margin-bottom: 1em;
@@ -87,7 +100,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Noto Sans Mono", monospace;
   color: var(--heading-color);
 }
 
@@ -110,8 +123,9 @@ a {
 }
 
 a:hover {
-  color: var(--hover-color);
-  text-shadow: 0px 0px var(--shadow-size) var(--hover-color);
+  color: var(--link-color);
+  background-color: var(--header-color);
+  text-decoration: none;
 }
 
 .nostyle {
