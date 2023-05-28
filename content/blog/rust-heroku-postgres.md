@@ -172,7 +172,7 @@ The structure should now look like this:
 
 For creating the table I'll make a file called `schema.sql` in the sql
 directory. For this example we'll make a simple blog system. We will store the
-id, auther, date, title, and content of each post.
+id, author, date, title, and content of each post.
 
 The SQL code to create such a table looks like this:
 
