@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block title %} Tags &middot; Callum Irving's
+Website {% endblock title%} {% block content %}
+<div class="post">
+  <h1>Tags</h1>
+  <ul>
+    {% for term in terms %}
+    <li><a class="nostyle" href="{{term.permalink}}">#{{ term.name }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock content %}

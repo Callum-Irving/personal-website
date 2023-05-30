@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %} #{{ term.name }} &middot; Callum
+Irving's Website {% endblock title%} {% block content %}
+<h1>#{{term.name}}</h1>
+<ul class="project-list">
+  {% for page in term.pages %}
+  <li>
+    <h3 style="margin-bottom: 0">
+      <a class="nostyle" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    </h3>
+    <p style="margin-top: 0.2em; margin-bottom: 0; font-size: 0.8rem">
+      {{ page.date }}
+    </p>
+    <p style="margin-top: 0.3em">{{ page.description }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
