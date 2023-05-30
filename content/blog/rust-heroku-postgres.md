@@ -4,6 +4,8 @@ date = 2022-05-18
 description = "A guide on using Heroku Postgres with Rust."
 [taxonomies]
 tags = ["rust"]
+[extra]
+keywords = "rust, heroku, postgres, database"
 +++
 
 I was learning Postgres and Actix Web recently to create a comment system for

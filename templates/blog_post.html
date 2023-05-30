@@ -6,11 +6,11 @@ block head %}
 <p><strong>{{ page.date }}</strong></p>
 
 <!-- Table of contents -->
+{% if page.toc %}
 <div
   style="border-top: 1px solid; border-bottom: 1px solid; margin-bottom: 2rem"
 >
   <h2 style="margin-top: 1rem; margin-bottom: 0">Table of Contents</h2>
-  {% if page.toc %}
   <ul>
     {% for h1 in page.toc %}
     <li>
@@ -27,10 +27,8 @@ block head %}
     </li>
     {% endfor %}
   </ul>
-  {% endif %}
 </div>
-
-{{ page.content | safe }}
+{% endif %} {{ page.content | safe }}
 
 <p>
   <br />

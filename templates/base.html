@@ -4,11 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if page.description %}
+    <meta name="description" content="{{page.description}}" />
+    {% elif section.description %}
+    <meta name="description" content="{{section.description}}" />
+    {% else %}
     <meta name="description" content="Callum Irving's personal website" />
+    {% endif %} {% if page.extra.keywords %}
+    <meta name="keywords" content="{{page.extra.keywords}}" />
+    {% elif section.extra.keywords %}
+    <meta name="keywords" content="{{section.extra.keywords}}" />
+    {% else %}
     <meta
       name="keywords"
       content="software developer, Callum Irving, portfolio, blog"
     />
+    {% endif %} {% if current_path %}
+    <link rel="canonical" href="{{config.base_url}}/{{current_path}}" />
+    {% endif %}
+
     <meta name="author" content="Callum Irving" />
     <link rel="stylesheet" type="text/css" href="/styles.css" />
     <link rel="icon" type="image/png" href="{{ get_url(path="favicon-32x32.png",
