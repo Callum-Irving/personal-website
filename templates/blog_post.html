@@ -1,15 +1,18 @@
-{% extends "base.html" %} {% block title %}{{ page.title }}{% endblock %} {%
-block head %}
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block head %}
 <script defer src="/copy_code.js"></script>
-{% endblock %} {% block content %}
+{% endblock %}
+
+{% block content %}
 <h1 style="text-align: left">{{ page.title }}</h1>
 <p><strong>{{ page.date }}</strong></p>
 
 <!-- Table of contents -->
 {% if page.toc %}
-<div
-  style="border-top: 1px solid; border-bottom: 1px solid; margin-bottom: 2rem"
->
+<div style="border-top: 1px solid; border-bottom: 1px solid; margin-bottom: 2rem">
   <h2 style="margin-top: 1rem; margin-bottom: 0">Table of Contents</h2>
   <ul>
     {% for h1 in page.toc %}
@@ -28,11 +31,15 @@ block head %}
     {% endfor %}
   </ul>
 </div>
-{% endif %} {{ page.content | safe }}
+{% endif %}
+
+{{ page.content | safe }}
 
 <p>
   <br />
   Please feel free to
   <a href="mailto:callum.irving@protonmail.com">email me</a> with any questions
-  or comments about this article. {% endblock content %}
+  or comments about this article.
 </p>
+
+{% endblock content %}

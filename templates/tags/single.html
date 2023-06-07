@@ -1,5 +1,8 @@
-{% extends "base.html" %} {% block title %} #{{ term.name }} &middot; Callum
-Irving's Website {% endblock title%} {% block content %}
+{% extends "base.html" %}
+
+{% block title %}#{{ term.name }} &middot; Callum Irving's Website{% endblock title%}
+
+{% block content %}
 <h1>#{{term.name}}</h1>
 <ul class="project-list">
   {% for page in term.pages %}
