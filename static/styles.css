@@ -236,7 +236,11 @@ code {
 }
 
 :not(pre)>code {
-  font-size: 16px;
+  background: #0f1419;
+  color: #fff;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 85%;
 }
 
 pre:hover>.copy-button {
