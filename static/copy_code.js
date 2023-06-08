@@ -15,6 +15,7 @@ async function copyCode(event) {
   const pre = btn.parentElement;
   let code = pre.querySelector("code");
   let text = code.innerText;
+  // TODO: Don't copy leading '$ ' (shell commands)
   await navigator.clipboard.writeText(text);
   btn.blur();
   btn.innerText = "Copied!";
