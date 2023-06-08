@@ -190,6 +190,13 @@ td {
   padding: 5px;
 }
 
+blockquote {
+  margin: 0 2rem 0 2rem;
+  font-style: italic;
+  padding: 0 1rem 0 1rem;
+  border: 2px dashed var(--heading-color);
+}
+
 /*
  * Links
  */
@@ -274,7 +281,7 @@ code {
   background: #0f1419;
   color: #fff;
   border-radius: 3px;
-  padding: 5px;
+  padding: 2px 5px 2px 5px;
   font-size: 85%;
 }
 
