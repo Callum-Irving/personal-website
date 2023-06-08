@@ -235,11 +235,11 @@ code {
   font-size: 0.85rem;
 }
 
-:not(pre) > code {
+:not(pre)>code {
   font-size: 16px;
 }
 
-pre:hover > .copy-button {
+pre:hover>.copy-button {
   opacity: 0.9;
 }
 
