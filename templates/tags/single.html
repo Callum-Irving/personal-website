@@ -2,8 +2,17 @@
 
 {% block title %}#{{ term.name }} &middot; Callum Irving's Website{% endblock title%}
 
+{% block rss %}
+{% set rss_path = "tags/" ~ term.name ~ "/rss.xml" %}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{{get_url(path=rss_path, trailing_slash=false)}}">
+{% endblock rss %}
+
 {% block content %}
 <h1>#{{term.name}}</h1>
+
+{% set rss_path = "tags/" ~ term.name ~ "/rss.xml" %}
+<p><a href="{{get_url(path=rss_path, trailing_slash=false)}}">RSS feed</a>
+
 <ul class="project-list">
   {% for page in term.pages %}
   <li>

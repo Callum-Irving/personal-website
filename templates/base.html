@@ -23,6 +23,9 @@
   <link rel="canonical" href="{{config.base_url}}{{current_path}}" />
   {% endif %}
 
+  {% block rss %}
+  {% endblock %}
+
   <meta name="author" content="Callum Irving" />
   <link rel="stylesheet" type="text/css" href="/styles.css" />
   <link rel="icon" type="image/png" href="{{get_url(path='favicon-32x32.png', trailing_slash=false)}}" sizes="32x32" />
