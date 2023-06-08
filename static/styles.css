@@ -143,6 +143,7 @@ h2 {
 h3 {
   font-family: "Noto Sans Mono", monospace;
   color: var(--heading-color);
+  font-size: 1.1rem;
 }
 
 p {
