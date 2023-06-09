@@ -86,8 +86,6 @@ body {
   font-style: normal;
   width: 90vw;
   max-width: 45rem;
-
-  /* transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; */
 }
 
 /*
@@ -133,7 +131,7 @@ nav a {
  */
 
 h1 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: "Noto Sans", sans-serif;
   color: var(--heading-color);
   font-size: 1.7rem;
   margin-top: 2rem;
@@ -142,9 +140,9 @@ h1 {
 }
 
 h2 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: "Noto Sans", sans-serif;
   color: var(--heading-color);
-  margin-top: 2em;
+  margin-top: 1.2em;
   margin-bottom: 1em;
   font-size: 1.4rem;
   font-weight: bold;
@@ -152,7 +150,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: "Noto Sans", sans-serif;
   color: var(--heading-color);
   font-size: 1.1rem;
 }
@@ -278,11 +276,22 @@ code {
 }
 
 :not(pre)>code {
-  background: #0f1419;
-  color: #fff;
+  background: #1e1e1e;
+  color: #dcdcdc;
   border-radius: 3px;
   padding: 2px 5px 2px 5px;
   font-size: 85%;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  background-color: inherit;
+  color: inherit;
+  padding: inherit;
 }
 
 pre:hover>.copy-button {
